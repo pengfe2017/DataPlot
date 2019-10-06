@@ -1,10 +1,12 @@
-0# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 """
 Created on Wed Feb 21 16:13:39 2018
 
 @author: 李鹏飞
 """
 import matplotlib
+from matplotlib import _pylab_helpers
+from matplotlib.rcsetup import interactive_bk as _interactive_bk
 #matplotlib.use('Qt4agg')
 import matplotlib.pyplot as plt
 import numpy as np
@@ -41,7 +43,6 @@ class FuncCollect:
         avg = np.cos(x)+np.sin(x)
         return avg
     
-    
 class DataPlotvsTime:
     def __init__(self,arg1,arg2):
         self.arg1 = arg1
@@ -51,6 +52,33 @@ class DataPlotvsTime:
         Xmin = Xmax - XRange
         ax_obj.set_xlim(Xmin,Xmax)
         ax_obj.set_xticks(np.linspace(Xmin,Xmax,6))
+                
+    def pause(self,interval, focus_figure=False):
+        """
+        Pause for *interval* seconds.
+        If there is an active figure it will be updated and displayed,
+        and the GUI event loop will run during the pause.
+        If there is no active figure, or if a non-interactive backend
+        is in use, this executes time.sleep(interval).
+        This can be used for crude animation. For more complex
+        animation, see :mod:`matplotlib.animation`.
+        This function is experimental; its behavior may be changed
+        or extended in a future release.
+        """
+        backend = matplotlib.rcParams['backend']
+        if backend in _interactive_bk:
+            figManager = _pylab_helpers.Gcf.get_active()
+            if figManager is not None:
+                canvas = figManager.canvas
+                if canvas.figure.stale:
+                    canvas.draw()
+                if focus_figure:
+                    plt.show(block=False)
+                canvas.start_event_loop(interval)
+                return    
+        # No on-screen figure is active, so sleep() is all we need.
+        import time
+        time.sleep(interval)
         
     def DynamicPlot(self,GetCurrentTimeFunc,ReservedFunc=1,*args):
         #make sure all passing arguments are methods.
@@ -71,7 +99,7 @@ class DataPlotvsTime:
         #figure1.canvas.manager.window.attributes('-topmost', 0)
 
         plt.ion()
-        #plt.show()                                      
+        plt.show(block = False)                                      
         
         while(1):
             time.sleep(.1)
@@ -109,7 +137,8 @@ class DataPlotvsTime:
                          color = "red",marker = next(markers), markersize = 16,
                          markerfacecolor = "yellow",markeredgecolor = "blue")
             plt.draw()
-            plt.pause(1e-6)
+            #plt.pause(1e-6)
+            self.pause(1e-6)
             #%% Reserved space for other scripts
             
             #%%Save TimerVector and DataVector into Excel file, with periodic saving                
