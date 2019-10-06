@@ -102,3 +102,9 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+InputData/
+ProgramStopFlag.txt
+StoredData/
+tips_ideas.py
+untitled0.py
+
