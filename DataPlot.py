@@ -4,6 +4,7 @@ Created on Wed Feb 21 16:13:39 2018
 
 @author: 李鹏飞
 """
+#%%
 import matplotlib
 from matplotlib import _pylab_helpers
 from matplotlib.rcsetup import interactive_bk as _interactive_bk
@@ -14,6 +15,7 @@ import time
 import itertools
 from Class_Simple_Function_Collections import SimpleFunctionCollections
 
+#%%
 class MyTimer:
     def __init__(self):
         self.TimeOrgn = time.perf_counter()
@@ -22,7 +24,7 @@ class MyTimer:
         self.DeltaTime = self.CrrnSec - self.TimeOrgn
         return self.DeltaTime
 
-
+#%%
 class FuncCollect:
     def __init__(self,arg1,arg2):
         self.arg1 = arg1
@@ -42,7 +44,7 @@ class FuncCollect:
     def avg_cos_sin(self,x):
         avg = np.cos(x)+np.sin(x)
         return avg
-    
+#%%    
 class DataPlotvsTime:
     def __init__(self,arg1,arg2):
         self.arg1 = arg1
@@ -80,6 +82,7 @@ class DataPlotvsTime:
         import time
         time.sleep(interval)
         
+#%%        
     def DynamicPlot(self,GetCurrentTimeFunc,ReservedFunc=1,*args):
         #make sure all passing arguments are methods.
         #Define counters and constants
@@ -89,6 +92,7 @@ class DataPlotvsTime:
         FileNameExt = time.strftime("%d%m%Y_%H-%M-%S")
         SFC_obj = SimpleFunctionCollections()
         Limit_LengthofVectors = 500
+        TemperatureLimit = 120
                 
         #Define variables
         TimerVector = []#for time
@@ -163,7 +167,7 @@ class DataPlotvsTime:
                 ProgramStopFlag = f.read()
                 ProgramStopFlag = int(ProgramStopFlag)
                 
-            if abs(ProgramStopFlag - 1 )<1e-6:
+            if TemperatureLimit > 130 or abs(ProgramStopFlag - 1 )<1e-6:
                 #np.save("npvariable",DataMatrix_ListType)
                 #np.save("Time",TimerVector)
                 DataMatrix_ListType.append(TimerVector)
@@ -175,7 +179,7 @@ class DataPlotvsTime:
                 TimerVector = []#for time
                 LengthofTimerVector = len(TimerVector)
                 DataMatrix_ListType = [[] for idx in range(NumberofData)]#for all other data
-                ax1.clear()
+                #ax1.clear()
                 
                 print("You manually stopped the app, and all data is saved, you can leave~")
                 break
