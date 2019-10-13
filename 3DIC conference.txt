@@ -1,0 +1,60 @@
+DARPAR
+hETEROGENEOUS INTEGRATION, modular chips
+
+Dahi, ephi, moabb, darpa long histroy of innovation in integration
+,
+Dahi project: MPW0 ~3, silicon CMOS as integration platform, DAHI direct digital synthesizer, with 14Gs/s sampling rate, InP HBT and GaN HEMT on CMOS
+yield chanllenges. 
+
+Where are we? addition of therposer technology, use difference process technologies, stop stacking on top of CMOS, 3D stacking is not necessary, pulling heat is hard from CMOS, using SiC as interposer. Example of interposer use, DAHI SiC chip, block converter and bypass offer wideband RF front end. 
+
+Metal Embeded chip assembly, MECA, heat sink electroforming, MECA enable heterogeneous integration with a metal interconnect, transfer the technology to airforce. Example: InP/CMPS beamformer. 
+
+Where are we headed? Heterogeneous, economical to build large systems out of smaller functions, quote from Gorden Moore.
+
+What is CHIPS? common heterogeneous integration and IP reuse stategies, modular system with commercial chiplets instead of monolithic chip. faster and economical. 
+
+Lessons learned, give designers a CMOS like design flow, device count and yield impact, III-Vs like COMS, 1000 transitors, yield is only 50%. compound semiconductors, stacking III-Vs on CMOS is not ideal for high power, planarity matters a lot, yield in erall circuits need some fill. Interposer an provide better thermal support. Indium phosphite compound. InP HBT device layer. 
+
+Questions: Heat may accumulate, hot spot problem, teledyne deals with less power, only two devices, heat spreader at the back side, GAN and InP on CMOS, DARPA stops doing this. GAN, InP, CMOS, dont need to be integrated together. Vendors like to provide chiplets or  not? fabricate the interconnect fabric, and a supply of these chiplets. 
+
+
+Quantum anneling and is appliation, new generation of natural computing, Tohoku University, Tokyo Tech, Signa-I Co. Ltd. Masayuki Ohzeki. 
+Problem setting: Combinatorial optimizaiton problem, cost function to be minimized and with various constraints, it takes really long time to solve the problem. quadratic unconstrained binary optimizaiton, 
+Concept of natural computing: how to find the minimum, y = ax^2 + b, 
+Law in nature potential nergy gravity,  trapp in local minumum, but need to find global minumum.
+
+Superposition and decay of radioactive elements. tunneling effect search ground sate while escaping from local minimum quantum annealing. D-wave systems. 2000Q
+
+TGV 18 40 um. Glass is good for silicon photonics, no via isolation, no photolithography, high performance substrates such as glass is needed. 27um, small TGV diameter, 
+
+Marching memory
+
+Past Present and Future of 3DIC, Koyanagi: Storage capacitor is far away from the silicon substrate.
+
+Hybrid bonding chanlenge: annealing temperature, alignment accuracy, logistics, equiment manufacture etc.human retina, = 3D retina chip, National project for 3D project, 3D device, technology, memory, ASET dream chip, NEDO smart device project.
+
+Laser Anneal project, recrystallization of poly-silicon, shallow junction, Tunnel 
+
+3D IC key applications memory on logic, 1993~1996 Franhaufer, develops, TSV-SLID technology, fabrcation of Tungsten or Copper filled TSV on top substrate. D2W or W2W, CIS-stacked DRAM, DRAM and FLASH, memory on logic, MEMS & ICs stacking. Bonding temperature lower, reliability better, 
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
+
+
+
+
+

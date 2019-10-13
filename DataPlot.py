@@ -101,9 +101,10 @@ class DataPlotvsTime:
         #prepare plot
         figure1, ax1 = plt.subplots(1,1,sharey = True)
         #figure1.canvas.manager.window.attributes('-topmost', 0)
-
+        #ax1.autoscale(enable = True)
+        ax1.set_autoscaley_on(True)
         plt.ion()
-        plt.show(block = False)                                      
+        #plt.show(block = False)                                      
         
         while(1):
             time.sleep(.1)
@@ -116,7 +117,7 @@ class DataPlotvsTime:
             
             CurrentData = []
             for idx in range(NumberofData):
-                CurrentData.append(args[idx](CurrentTime))
+                CurrentData.append(args[idx](CurrentTime/10))
             
             LengthofTimerVector = len(TimerVector)
             #%%save all data
@@ -131,8 +132,7 @@ class DataPlotvsTime:
             #otherwise the plot process will slow down the entire process
             XTickMax = CurrentTime
             XRange = 40
-            ax1.autoscale(enable = True)
-            self.SetXTicks(ax1, XRange, int(XTickMax))
+            self.SetXTicks(ax1, XRange, XTickMax)
             
             markers = itertools.cycle(("+","*","o"))
             for idx in range(NumberofData):
@@ -140,9 +140,10 @@ class DataPlotvsTime:
                 ax1.plot(CurrentTime,CurrentData[idx],linestyle = "-", linewidth = 2,
                          color = "red",marker = next(markers), markersize = 16,
                          markerfacecolor = "yellow",markeredgecolor = "blue")
-            plt.draw()
+            
             #plt.pause(1e-6)
             self.pause(1e-6)
+            plt.draw()
             #%% Reserved space for other scripts
             
             #%%Save TimerVector and DataVector into Excel file, with periodic saving                
